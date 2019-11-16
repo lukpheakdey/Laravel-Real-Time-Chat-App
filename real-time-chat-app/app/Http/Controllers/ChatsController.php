@@ -3,15 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Events\MessageSent;
+use App\Events\WebsocketDemoEvent;
 use Illuminate\Http\Request;
 use App\Message;
 
 class ChatsController extends Controller
 {
     public function __construct()
-{
-    $this->middleware('auth');
-}
+    {
+        $this->middleware('auth');
+    }
     public function index()
     {
         return view('chats');
@@ -25,6 +26,7 @@ class ChatsController extends Controller
         $message = auth()->user()->messages()->create([
             'message' => $request->message
         ]);
+        //broadcast(new WebsocketDemoEvent($message->load('user')))->toOthers();
         broadcast(new MessageSent($message->load('user')))->toOthers();
         return ['status' => 'success'];
     }

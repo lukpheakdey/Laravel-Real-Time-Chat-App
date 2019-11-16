@@ -37,7 +37,7 @@ if (token) {
  * allows your team to easily build robust real-time web applications.
  */
 
-import Echo from 'laravel-echo'
+import Echo from 'laravel-echo';
 
 window.Pusher = require('pusher-js');
 
@@ -49,9 +49,14 @@ window.Echo = new Echo({
     disableStats: true,
 });
 
-window.Echo.channel('DemoChannel')
-    .listen('WebsocketDemoEvent', (e) => {
-        console.log(e);
-    });
+// window.Echo.channel('DemoChannel')
+//     .listen('WebsocketDemoEvent', (e) => {
+//         console.log(e);
+//     });
+//
+// window.Echo.channel('chat')
+//     .listen('MessageSent', (e) => {
+//         console.log(e);
+//     });
 
 
