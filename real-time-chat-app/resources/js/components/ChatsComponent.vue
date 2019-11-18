@@ -44,7 +44,7 @@
             return {
                 messages: [],
                 newMessage: '',
-                users:[],
+                //users:[],
                 // activeUser: false,
                 // typingTimer: false,
             }
